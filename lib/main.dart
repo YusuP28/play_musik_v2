@@ -73,7 +73,12 @@ class _LuneHomeScreenState extends State<LuneHomeScreen> {
                           ),
                           IconButton(
                             icon: const Icon(Icons.settings_outlined, color: Color(0xFF8CA0B3)),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const LuneSettingsScreen()),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -146,53 +151,66 @@ class _LuneHomeScreenState extends State<LuneHomeScreen> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF171C24),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Container(
-                            width: 55,
-                            height: 55,
-                            color: Colors.purple.shade900,
-                            child: const Icon(Icons.album, color: Colors.white70),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const LuneNowPlayingScreen()),
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF171C24),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Container(
+                              width: 55,
+                              height: 55,
+                              color: Colors.purple.shade900,
+                              child: const Icon(Icons.album, color: Colors.white70),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 14),
-                        const Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Hamari Adhuri Kahani',
-                                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              SizedBox(height: 4),
-                              Text(
-                                'Jeet Gannguli, Arijit Singh',
-                                style: TextStyle(fontSize: 12, color: Color(0xFF8CA0B3)),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
+                          const SizedBox(width: 14),
+                          const Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Hamari Adhuri Kahani',
+                                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  'Jeet Gannguli, Arijit Singh',
+                                  style: TextStyle(fontSize: 12, color: Color(0xFF8CA0B3)),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xFF2A3445),
+                          Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xFF2A3445),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(Icons.play_arrow_rounded, color: Colors.white),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const LuneNowPlayingScreen()),
+                                );
+                              },
+                            ),
                           ),
-                          child: IconButton(
-                            icon: const Icon(Icons.play_arrow_rounded, color: Colors.white),
-                            onPressed: () {},
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -243,75 +261,83 @@ class _LuneHomeScreenState extends State<LuneHomeScreen> {
               left: 16,
               right: 16,
               bottom: 16,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF151A21),
-                  borderRadius: BorderRadius.circular(22),
-                  border: Border.all(color: const Color(0xFF222B38)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      blurRadius: 15,
-                      offset: const Offset(0, 5),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Container(
-                        width: 45,
-                        height: 45,
-                        color: const Color(0xFF2A3445),
-                        child: const Icon(Icons.music_note, color: Colors.white70, size: 20),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LuneNowPlayingScreen()),
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF151A21),
+                    borderRadius: BorderRadius.circular(22),
+                    border: Border.all(color: const Color(0xFF222B38)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        blurRadius: 15,
+                        offset: const Offset(0, 5),
                       ),
-                    ),
-                    const SizedBox(width: 12),
-                    const Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Container(
+                          width: 45,
+                          height: 45,
+                          color: const Color(0xFF2A3445),
+                          child: const Icon(Icons.music_note, color: Colors.white70, size: 20),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      const Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Hamari Adhuri Kahani',
+                              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.white),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            SizedBox(height: 2),
+                            Text(
+                              'Jeet Gannguli, Arijit Singh',
+                              style: TextStyle(fontSize: 11, color: Color(0xFF8CA0B3)),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(
-                            'Hamari Adhuri Kahani',
-                            style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.white),
-                            overflow: TextOverflow.ellipsis,
+                          IconButton(
+                            icon: const Icon(Icons.skip_previous_rounded, color: Colors.white, size: 22),
+                            onPressed: () {},
                           ),
-                          SizedBox(height: 2),
-                          Text(
-                            'Jeet Gannguli, Arijit Singh',
-                            style: TextStyle(fontSize: 11, color: Color(0xFF8CA0B3)),
-                            overflow: TextOverflow.ellipsis,
+                          Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xFF2E3B4E),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 20),
+                              onPressed: () {},
+                            ),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.skip_next_rounded, color: Colors.white, size: 22),
+                            onPressed: () {},
                           ),
                         ],
                       ),
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.skip_previous_rounded, color: Colors.white, size: 22),
-                          onPressed: () {},
-                        ),
-                        Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xFF2E3B4E),
-                          ),
-                          child: IconButton(
-                            icon: const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 20),
-                            onPressed: () {},
-                          ),
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.skip_next_rounded, color: Colors.white, size: 22),
-                          onPressed: () {},
-                        ),
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -338,6 +364,222 @@ class _LuneHomeScreenState extends State<LuneHomeScreen> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class LuneNowPlayingScreen extends StatelessWidget {
+  const LuneNowPlayingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.white, size: 30),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: const Text('Playing from: All', style: TextStyle(fontSize: 14, color: Color(0xFF8CA0B3))),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.more_vert_rounded, color: Colors.white),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+        child: Column(
+          children: [
+            const Spacer(),
+            Center(
+              child: Container(
+                width: 280,
+                height: 280,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(32),
+                  gradient: LinearGradient(
+                    colors: [Colors.purple.shade800, Colors.blue.shade900],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.purple.withOpacity(0.3),
+                      blurRadius: 30,
+                      offset: const Offset(0, 10),
+                    ),
+                  ],
+                ),
+                child: const Icon(Icons.music_note_rounded, size: 100, color: Colors.white70),
+              ),
+            ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hamari Adhuri Kahani',
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 6),
+                      Text(
+                        'Jeet Gannguli, Arijit Singh',
+                        style: TextStyle(fontSize: 14, color: Color(0xFF8CA0B3)),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.favorite_border_rounded, color: Colors.white, size: 28),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Column(
+              children: [
+                SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                    trackHeight: 4,
+                    thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
+                    activeTrackColor: Colors.white,
+                    inactiveTrackColor: const Color(0xFF222B38),
+                    thumbColor: Colors.white,
+                  ),
+                  child: Slider(
+                    value: 1.25,
+                    min: 0,
+                    max: 5.0,
+                    onChanged: (val) {},
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('01:25', style: TextStyle(color: Color(0xFF8CA0B3), fontSize: 12)),
+                      Text('05:10', style: TextStyle(color: Color(0xFF8CA0B3), fontSize: 12)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.shuffle_rounded, color: Color(0xFF8CA0B3), size: 24),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: const Icon(Icons.skip_previous_rounded, color: Colors.white, size: 36),
+                  onPressed: () {},
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                  ),
+                  child: IconButton(
+                    icon: const Icon(Icons.pause_rounded, color: Color(0xFF0E1116), size: 32),
+                    onPressed: () {},
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.skip_next_rounded, color: Colors.white, size: 36),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: const Icon(Icons.repeat_rounded, color: Color(0xFF8CA0B3), size: 24),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            const SizedBox(height: 30),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LuneSettingsScreen extends StatelessWidget {
+  const LuneSettingsScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: const Text('Settings', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          _buildSettingsGroup('General', [
+            _buildSettingsTile(Icons.palette_outlined, 'Appearance', 'Dark theme, accent color'),
+            _buildSettingsTile(Icons.audiotrack_outlined, 'Audio', 'Equalizer, playback settings'),
+          ]),
+          const SizedBox(height: 20),
+          _buildSettingsGroup('Backup & Storage', [
+            _buildSettingsTile(Icons.backup_outlined, 'Backup Data', 'Save playlists and history'),
+            _buildSettingsTile(Icons.folder_outlined, 'Library Folders', 'Manage music directories'),
+          ]),
+          const SizedBox(height: 20),
+          _buildSettingsGroup('Security & About', [
+            _buildSettingsTile(Icons.security_outlined, 'Security', 'App lock and privacy'),
+            _buildSettingsTile(Icons.info_outline_rounded, 'About Lune', 'Version 2.0.0'),
+          ]),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSettingsGroup(String title, List<Widget> tiles) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(color: Color(0xFF8CA0B3), fontSize: 13, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 10),
+        Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFF171C24),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: const Color(0xFF222936)),
+          ),
+          child: Column(children: tiles),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSettingsTile(IconData icon, String title, String subtitle) {
+    return ListTile(
+      leading: Icon(icon, color: const Color(0xFF8CA0B3)),
+      title: Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
+      subtitle: Text(subtitle, style: const TextStyle(color: Color(0xFF8CA0B3), fontSize: 12)),
+      trailing: const Icon(Icons.arrow_forward_ios_rounded, color: Color(0xFF8CA0B3), size: 14),
+      onTap: () {},
     );
   }
 }
